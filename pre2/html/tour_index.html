@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>코레일투어 :: 여행상품 패키지</title>
+    <link rel="stylesheet" href="../css/common/common.css">
+    <link rel="stylesheet" href="../css/hyewon.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="shortcut icon" href="../images/common/Ko.ico">
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/jquery.bxslider.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/tab.js"></script>
+    <script src="../js/swiper-bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#t_mainSlider .visual').bxSlider({
+                mode: 'fade', //'horizontal'(기본값), 'vertical', 'fade'
+                auto: true, //false(기본값), 자동실행을 원하면 추가
+                pause: 2000, //4000(4초 기본값), 1초 = 1000
+                autoControls: true, //시작과 정지버튼 생성, 기본값 false
+                ariaLive: true, //스크린리더 사용자에게 변경된 정보를 알릴지 여부
+                ariaHidden: true, //보여지는 슬라이더 내용인지 여부
+                prevText: '이전 슬라이더 보기',
+                nextText: '다음 슬라이더 보기',
+                startText: '애니메이션 시작',
+                stopText: '애니메이션 정지',
+                //창사이즈에 변화가 생길때 추가
+                onSliderResize: function () {
+                    $('#t_mainSlider .bx-pager-item a').wrapInner('<span class="blind-b"></span>');
+                }
+            });
+
+            //bxslider에서 동적생성된 태그를 wrapInner()메서드를 통해 컨텐츠를 감싸는 태그를 추가 생성
+            $('#t_mainSlider .bx-controls-direction a, #t_mainSlider .bx-controls-auto-item a, #t_mainSlider .bx-pager-item a')
+                .wrapInner('<span class="blind-b"></span>');
+
+            $('#t_mainSlider .visual').bxSlider({
+                mode: 'fade', //'horizontal'(기본값), 'vertical', 'fade'
+                auto: true, //false(기본값), 자동실행을 원하면 추가
+                pause: 2000, //4000(4초 기본값), 1초 = 1000
+                autoControls: true, //시작과 정지버튼 생성, 기본값 false
+                ariaLive: true, //스크린리더 사용자에게 변경된 정보를 알릴지 여부
+                ariaHidden: true, //보여지는 슬라이더 내용인지 여부
+                prevText: '이전 슬라이더 보기',
+                nextText: '다음 슬라이더 보기',
+                startText: '애니메이션 시작',
+                stopText: '애니메이션 정지',
+                //창사이즈에 변화가 생길때 추가
+                onSliderResize: function () {
+                    $('#t_mainSlider .bx-pager-item a').wrapInner('<span class="blind-b"></span>');
+                }
+            });
+
+            //bxslider에서 동적생성된 태그를 wrapInner()메서드를 통해 컨텐츠를 감싸는 태그를 추가 생성
+            $('#t_mainSlider .bx-controls-direction a, #t_mainSlider .bx-controls-auto-item a, #t_mainSlider .bx-pager-item a')
+                .wrapInner('<span class="blind-b"></span>');
+        });
+    </script>
+</head>
+
+<body>
+    <!-- header 시작 -->
+    <div id="skip">
+        <a href="">본문 바로가기</a>
+    </div>
+    <header id="header">
+        <div class="area clearfix p_r">
+            <h1 class="logo p_a">
+                <a href=""><img src="../images/common/nav_logo.png" alt="레츠코레일"></a>
+            </h1>
+            <nav id="gnb">
+                <h2 class="blind-b">주메뉴</h2>
+                <ul class="depth1 cblack clearfix">
+                    <li id="menu1" class="menu">
+                        <a href="">승차권 예약</a>
+                        <ul class="depth2 cblack">
+                            <li>
+                                <a href=""><span>일반 승차권</span></a>
+                            </li>
+                            <li>
+                                <a href=""><span>할인 승차권</span></a>
+                            </li>
+                            <li>
+                                <a href=""><span>4인 동반석</span></a>
+                            </li>
+                            <li>
+                                <a href=""><span>관광 열차</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="menu2" class="menu">
+                        <a href="">관광 열차</a>
+                        <ul class="depth2">
+                            <li class="cblue">
+                                <a href=""><span>동해산타열차</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>동해산타열차 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>동해산타열차 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue menu2">
+                                <a href=""><span>서해금빛열차</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>West gold-train 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>West gold-train 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue">
+                                <a href=""><span>백두대간협곡열차</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>V-train 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>V-train 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue">
+                                <a href=""><span>정선아리랑열차</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>A-train 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>A-train 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue menu2">
+                                <a href=""><span>남도해양열차</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>S-train 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>S-train 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue menu2">
+                                <a href=""><span>평화열차 DMZ</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>DMZ-train 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>DMZ-train 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue menu2">
+                                <a href=""><span>레일크루즈해랑</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>바다열차</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>교육열차</span></a>
+                                    </li>
+                                    <li><a href=""><span>국악와인열차</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="menu3" class="menu">
+                        <a href="">자유 여행</a>
+                        <ul class="depth2">
+                            <li class="cblue menu2">
+                                <a href=""><span>국내여행패스</span></a>
+                                <ul class="depth3 cblack">
+                                    <li><a href=""><span>내일로</span></a></li>
+                                    <li><a href=""><span>문화누리패스</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="cblue menu2">
+                                <a href=""><span>해외여행패스</span></a>
+                                <ul class="depth3 cblack">
+                                    <li><a href=""><span>일본패스</span></a></li>
+                                    <li><a href=""><span>기차여행 만들기</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="menu4" class="menu">
+                        <a href="">여행 상품</a>
+                        <ul class="depth2">
+                            <li class="cblue p_r">
+                                <a href=""><span>테마별 패키지</span></a>
+                                <ul class="depth3 cblack">
+                                    <li><a href=""><span>우리지역 대표상품</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="cblue">
+                                <a href=""><span>지역별 패키지</span></a>
+                                <ul class="depth3 cblack">
+                                    <li><a href=""><span>수도권</span></a></li>
+                                    <li><a href=""><span>강원권</span></a></li>
+                                    <li><a href=""><span>충청권</span></a></li>
+                                    <li><a href=""><span>경상권</span></a></li>
+                                    <li><a href=""><span>전라권</span></a></li>
+                                    <li><a href=""><span>제주권</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="cblue">
+                                <a href=""><span>KTX+연계서비스</span></a>
+                                <ul class="depth3 cblack">
+                                    <li><a href=""><span>레일쉽-제주도(목포)</span></a></li>
+                                    <li><a href=""><span>레일쉽-제주도(여수)</span></a></li>
+                                    <li><a href=""><span>레일쉽-제주도(포항)</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="cblue p_a"><a href=""><span>이달의 기차여행</span></a></li>
+                        </ul>
+                    </li>
+                    <li id="menu5" class="menu">
+                        <a href="">숙소 예약</a>
+                        <ul class="depth2 cblack">
+                            <li><a href=""><span>호텔</span></a></li>
+                            <li><a href=""><span>리조트</span></a></li>
+                            <li><a href=""><span>민박</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="bluebox p_a">
+                <a href="">회원가입</a>
+                <a href="">로그인</a>
+            </div>
+        </div>
+    </header>
+    <!-- //header 끝-->
+
+    <section id="t_mainSlider">
+        <!-- 슬라이더 순서: visual 컨텐츠 -> 이전, 다음 -> play, stop -> 페이지번호 -->
+        <ul class="visual">
+            <li>
+                <h2>국내 패키지 여행</h2>
+                <strong>어디로 떠날까요?</strong>
+                <form action="search.php" method="post" label="여행지검색">
+                    <input type="text" id="uid" name="uid" placeholder="여행지 검색">
+                    <button type="submit" class="button">
+                        <i class="fas fa-search-location"></i>
+                </form>
+            </li>
+            <li>
+                <h2>국내 패키지 여행</h2>
+                <strong>어디로 떠날까요?</strong>
+                <form action="search.php" method="post" label="여행지검색">
+                    <input type="text" id="uid" name="uid" placeholder="여행지 검색">
+                    <button type="submit" class="button">
+                        <i class="fas fa-search-location"></i></button>
+                </form>
+            </li>
+            <li>
+                <h2>국내 패키지 여행</h2>
+                <strong>어디로 떠날까요?</strong>
+                <form action="search.php" method="post" label="여행지검색">
+                    <input type="text" id="uid" name="uid" placeholder="여행지 검색">
+                    <button type="submit" class="button">
+                        <i class="fas fa-search-location"></i></button>
+                </form>
+            </li>
+        </ul>
+    </section>
+
+    <div class="area">
+        <!-- 1360픽셀 문서 가운데 위치 - 공통클래스 선언 -->
+        <section id="tcon1">
+            <h4 class="c_sub_tit">국내여행 지역별 BEST</h4>
+
+            <!-- ARIA role(역할, 기능), property(관계, 특징), state(현재의 상태) -->
+            <div id="localTab">
+                <ul role="tablist" class="tablist" aria-label="국내여행 지역별 BEST">
+                    <li role="tab" class="tab first" id="tab1" aria-controls="tabpanel1">수도권</li>
+                    <li role="tab" class="tab" id="tab2" aria-controls="tabpanel2">강원권</li>
+                    <li role="tab" class="tab" id="tab3" aria-controls="tabpanel3">충청권</li>
+                    <li role="tab" class="tab" id="tab4" aria-controls="tabpanel4">경상권</li>
+                    <li role="tab" class="tab" id="tab5" aria-controls="tabpanel5">전라권</li>
+                    <li role="tab" class="tab last" id="tab6" aria-controls="tabpanel6">제주권</li>
+                </ul>
+                <div role="tabpanel" class="tabpanel" id="tabpanel1" aria-labelledby="tab1">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local1_1.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">한복입고 떠나는 경복궁</span>
+                                    <span class="inner-cont">#역사속으로<br>#커플추천여행</span>
+                                    <span class="inner-price">55,140원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local1_2.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[서울시티투어] 북촌 한옥마을</span>
+                                    <span class="inner-cont">#도심투어<br>#가족여행</span>
+                                    <span class="inner-price">55,140원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local1_3.jpg" alt=""> </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[story cruise]
+                                        한강 낭만크루즈</span>
+                                    <span class="inner-cont">#야간투어<br>#커플추천여행</span>
+                                    <span class="inner-price">55,140원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local1_4.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[DMZ-train] 도라산 평화관광</span>
+                                    <span class="inner-cont">#가을 #가족여행<br>#역사속으로</span>
+                                    <span class="inner-price">55,140원~</span>
+                                </span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tabpanel" id="tabpanel2" aria-labelledby="tab2">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local2_1.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[강릉] 바다열차 & 바다솔향길</span>
+                                    <span class="inner-cont">#바다 #힐링<br>#가족여행</span>
+                                    <span class="inner-price">55,140원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local2_2.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[강촌] 북한강 레일바이크</span>
+                                    <span class="inner-cont">#경춘선<br>#김유정역 #레일파크</span>
+                                    <span class="inner-price">30,000원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local2_3.jpg" alt=""> </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">남이섬 & 아침고요수목원</span>
+                                    <span class="inner-cont">#경춘선 #드라마촬영지<br>#당일</span>
+                                    <span class="inner-price">55,140원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local2_4.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">남설악 & 속초중앙시장</span>
+                                    <span class="inner-cont">#트래킹 #주전골<br>#당일여행</span>
+                                    <span class="inner-price">55,140원~</span>
+                                </span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tabpanel" id="tabpanel3" aria-labelledby="tab3">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local3_1.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[충주호] 유람선 & 스카이워크</span>
+                                    <span class="inner-cont">#남한강 #체험프로그램<br>#가족여행</span>
+                                    <span class="inner-price">89,100원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local3_2.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[공주] 백제 역사문화탐방 </span>
+                                    <span class="inner-cont">#백제 #문화유산<br>#역사속으로</span>
+                                    <span class="inner-price">75,000원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local3_3.jpg" alt=""> </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit"> 안면도ㆍ간월도 & 자연휴양림</span>
+                                    <span class="inner-cont">#섬여행<br>#수목원 #힐링</span>
+                                    <span class="inner-price">64,000원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local3_4.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[천안] 아산 스파비스 </span>
+                                    <span class="inner-cont">#온천 #스파<br>#가족여행</span>
+                                    <span class="inner-price">27,600원~</span>
+                                </span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tabpanel" id="tabpanel4" aria-labelledby="tab4">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local4_1.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[경주]경주 신라투어 패스</span>
+                                    <span class="inner-cont">#경주자유여행<br>#48시간권</span>
+                                    <span class="inner-price">31,500원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local4_2.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[부산] 고품격 부산시티투어</span>
+                                    <span class="inner-cont">#도심투어<br>#당일여행</span>
+                                    <span class="inner-price">128,800원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local4_3.jpg" alt=""> </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[대구] 뉴트로 여행</span>
+                                    <span class="inner-cont">#도심투어<br>#커플추천</span>
+                                    <span class="inner-price">28,700원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local4_4.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">신비의 섬 울릉도+관음도</span>
+                                    <span class="inner-cont">#가을 #가족여행<br>#힐링</span>
+                                    <span class="inner-price">290,400원~</span>
+                                </span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tabpanel" id="tabpanel5" aria-labelledby="tab5">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local5_1.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[여수]아그리나요트 체험</span>
+                                    <span class="inner-cont">#여수밤바다 #야경코스<br>#이색체험</span>
+                                    <span class="inner-price">34,000원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local5_2.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">군산근대거리+전주한옥마을 </span>
+                                    <span class="inner-cont">#서해금빛열차 #도심투어<br>#기차여행</span>
+                                    <span class="inner-price">95,000원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local5_3.jpg" alt=""> </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">순천만 갈대밭 & 드라마세트장</span>
+                                    <span class="inner-cont">#가을 #순천만<br>#힐링</span>
+                                    <span class="inner-price">125,000원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local5_4.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[목포] 해상케이블카, 장성호</span>
+                                    <span class="inner-cont">#바다여행 <br>#케이블카 #1박2일</span>
+                                    <span class="inner-price">127,000원~</span>
+                                </span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tabpanel" id="tabpanel6" aria-labelledby="tab6">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local6_1.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[제주 동부] 제주레일바이크</span>
+                                    <span class="inner-cont">#제주레일바이크<br>#거리두기 #힐링</span>
+                                    <span class="inner-price">15,000원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local6_2.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">★우도★+카멜리아힐+주상절리</span>
+                                    <span class="inner-cont">#패키지여행<br>#섬속의섬우도</span>
+                                    <span class="inner-price">128,000원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local6_3.jpg" alt=""> </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">제주 바닷가 감성캠핑</span>
+                                    <span class="inner-cont">#바다 #캠핑<br>#커플추천</span>
+                                    <span class="inner-price">120,000원~</span>
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="inner-top">
+                                    <img src=" ../images/tour/local6_4.jpg" alt="">
+                                </span>
+                                <span class="inner-bottom">
+                                    <span class="inner-tit">[중문] 조랑말타운 승마체험</span>
+                                    <span class="inner-cont">#가을 #가족여행<br>#중문승마공원</span>
+                                    <span class="inner-price">17,900원~</span>
+                                </span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="tcon2">
+            <h4 class="c_sub_tit">오늘의 핫 키워드 #테마여행 #패키지</h4>
+            <ul>
+                <li><button type="submit" class="button"></button><i class="fas fa-angle-left arr_l"></i></li>
+                <li class="circle">
+                    <strong>
+                        <span>#힐링여행</span>
+                    </strong>
+                </li>
+                <li class="circle">
+                    <strong>
+                        <span>#맛집탐방</span>
+                    </strong>
+                </li>
+                <li class="circle">
+                    <strong>
+                        <span>#액티비티</span>
+                    </strong>
+                </li>
+                <li><i class="fas fa-angle-right arr_r"></i></li>
+            </ul>
+        </section>
+        <section id="tcon3">
+            <div id="eventSlider">
+                <!-- 슬라이더 순서: visual 컨텐츠 -> 이전, 다음 -> play, stop -> 페이지번호 -->
+                <ul class="visual">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </section>
+        <section id="tcon4">
+            <h4 class="c_sub_tit">할인 & 특별 추천 여행</h4>
+            <ul>
+                <li><a href=""></a><img src="../images/tour/b1.png" alt=""></li>
+                <li><a href=""></a><img src="../images/tour/b2.png" alt=""></li>
+                <li><a href=""></a><img src="../images/tour/b3.png" alt=""></li>
+                <li><a href=""></a><img src="../images/tour/b4.png" alt=""></li>
+            </ul>
+        </section>
+        <section id="tcon5">
+            <h4 class="c_sub_tit">생생 여행 후기</h4>
+            <div class="review">
+                <div class="youtube">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/FMpjYi9Dr48" title="유튜브 영상"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="review_box">
+                    <a href=""><img src="../images/tour/profile.png" alt=""></a>
+                    <p>자세히 보기 ></p>
+                    <div class="box">
+
+                        <span class="arrow"></span>
+                        <div class="review_tit">
+                            <strong>"포항 최고 핫한 해변, 양양"</strong>
+                            <span class="date">| 2020.10.12</span>
+                        </div>
+                        <div class="review_txt">
+                            <p>포항에서 가장 발달한 해수욕장이며, 많은 상가들이 즐기하게 이어져있다.<br>
+                                맞은편 포스코의 야경을 벗삼아, 맛있는 해물이나 맥주한잔 걸치기에 딱 좋다.<br>
+                                여름에는 포라카이 등의 신규 명소를 만들어서 많은 관광객을 유치하고 있으며,<br>
+                                수상 정자 및 로즈 가든등이 잘 꾸며져 있어 구경하기에 좋다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- footer 시작 -->
+
+    <footer id="footer">
+        <div class="area in_foot">
+            <ul>
+                <li><a href="#">홈페이지이용약관</a></li>
+                <li><a href="#">여객운송약관/부속약관</a></li>
+                <li class="privacy"><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">저작권정책</a></li>
+                <li><a href="#">정보공개</a></li>
+            </ul>
+            <div class="longtxt">
+                <p>대표자 : 손병석 | 상호 : 한국철도공사 | 사업자등록 : 314-52-10024 | 통신판매업신고 : 대전동구-0233호 <address> | 주소 : (34618) 대전광역시
+                        동구 중앙로 240 </address> | TEL : 1544-7788 | FAX : 02-361-8385</p>
+            </div>
+            <p class="copy">COPYRIGHT @ KOREA RAILROAD. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- //footer 끝 -->
+</body>
+
+</html>

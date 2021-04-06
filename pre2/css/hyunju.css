@@ -1,0 +1,145 @@
+@charset "utf-8";
+/* tag reset */
+input[type="text"]{border: 1px solid #aaa;}
+button{margin: 0;padding: 0;border: none;cursor: pointer;}
+
+/* common class */
+.center{text-align: center;}
+
+.pad_top210{padding-top: 210px;}
+.pad_btm40{padding-bottom: 40px;}
+.txt_tit{font-size: 30px;font-weight: 700;text-align: center;}
+.txt_sub{font-size: 25px;font-weight: 700;text-align: left;}
+
+/* hotel */
+#hotelSearch{position: relative;background: url("../images/hotel/index3.jpg") no-repeat center;width: 100%;height: 710px;/* top: 0;left: 0; */margin-top: 100px;}
+#hotelSearch .container{padding-top: 420px;}
+#hotelSearch .container strong{font-size: 40px;left: 0;}
+
+#formBox{margin-top: 20px;background: #ffffff;}
+#formBox > div{position: relative;float: left;border: 1px solid #aaa;height: 100px;line-height: 98px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+#formBox > div + div{border-left: none;}
+#formBox div input{border: none;padding: 0;}
+#formBox > div > input{height: 98px;line-height: 98px;font-size: 18px;}
+#formBox .checkin label, #formBox .checkout label{position: absolute;top: 0;left: 5px;;color: #767676;}
+
+#formBox .city{width: 380px;}
+#formBox #city{width: 300px;margin-left: 20px;}
+
+#formBox .from_to{width: 234px;padding-left: 80px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+#formBox .from_to+img{position: absolute;right: 10px;top: calc(50% - 15px);}
+
+#formBox .room{width: 290px;}
+#formBox #room{margin-left: 20px;width: 215px;}
+#formBox .room .room_cnt{display: none;top: 100px;left: 0;width: 100%;padding: 10px 20px;background: #ffffff;border: 1px solid #aaa;line-height: 1.5;-moz-box-sizing: border-box;box-sizing: border-box;}
+#formBox .room .room_cnt .num_item{padding-bottom: 10px;}
+#formBox .room .room_cnt .num_item > *{float: left;}
+
+#formBox .room .room_cnt .num_item .inner input{width: 85px;margin-left: 50px;text-align: center;}
+#formBox .room .room_cnt .num_item .inner button{margin-left: 10px;}
+
+#formBox .room .room_cnt .btn_roomclose{background: #083B82;padding: 2px 10px;margin-top: 5px;line-height: 27px;color: #ffffff;}
+
+#formBox .search{position: relative;width: 220px;height: 100px;background: #083B82;text-align: center;font-size: 18px;}
+#formBox .search:focus{outline: 2px solid #ff0;}
+
+#localTab{margin: 40px auto;width: 1360px;height: 491px;}
+#localTab .tablist{height: 30px;margin: 0 80px 53px;}
+#localTab .tablist .tab{float: left;width: 150px;height: 33px;border-bottom: 1px solid #ccc;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;line-height: 30px;text-align: center;color: #777;}
+#localTab .tablist .tab:hover,#localTab .tablist .tab.active{cursor: pointer;border-bottom: 5px solid #50A7E5;color: #333;}
+
+#localTab .tabpanel{position: relative;display: none;}
+#localTab .tabpanel.active{display: block;}
+
+#localTab .tabpanel ul li{float: left;overflow: hidden;text-align: left;width: 290px;height: 410px;border: 1px solid #ccc;border-radius: 8px;box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.1);-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+#localTab .tabpanel ul li+li{margin-left: 66.66666666666667px;}
+#localTab .tabpanel ul li img{display: inline-block;width: 290px;height: 218px;-webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1);-o-transform: scale(1);transform: scale(1);-webkit-transition: transform 0.5s;-moz-transition: transform 0.5s;-o-transition: transform 0.5s;transition: transform 0.5s;}
+#localTab .tabpanel ul li a:hover img,.tabpanel ul li.active a img{-webkit-transform: scale(1.1);-moz-transform: scale(1.1);-ms-transform: scale(1.1);-o-transform: scale(1.1);transform: scale(1.1);}
+#localTab .tabpanel ul li p{display: block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;margin-left: 19px;}
+#localTab .tabpanel ul li p:nth-child(2){font-size: 14px;color: #777;margin-top: 26px;width: 144px;}
+#localTab .tabpanel ul li p:nth-child(3){font-size: 16px;font-weight: 700;margin-top: 33px;width: 252px;}
+#localTab .tabpanel ul li p:nth-child(4){font-size: 20px;font-weight: 700;color: #f2312c;margin-top: 35px;}
+#localTab .tabpanel ul li p span{font-size: 15px;color: #f2312c;}
+
+
+#discount h3{padding-bottom: 64px;}
+#discount .slide .bx-wrapper{position: relative;width: 1206px;margin: 0 auto;}
+#discount .bx-controls-direction a{position: absolute;z-index: 101;top: calc(50% - 24.5px);width: 49px;height: 49px;background-size: 49px !important;}
+#discount .bx-controls-direction .bx-prev{background: url("../images/icon/hotel/prev.png") no-repeat;left: -70px;}
+#discount .bx-controls-direction .bx-next{background: url("../images/icon/hotel/next.png") no-repeat;right: -70px;}
+#discount .slide ul li img{width: 603px;height: 346px;}
+#discount .slide .txt{position: absolute;background: rgba(51, 51, 51, 0.9);left: 0;bottom: 0px;width: 302px;height: 173px;}
+#discount .slide .txt p{padding-left: 29px;}
+#discount .slide ul li{margin: 0 15px;}
+#discount .slide ul li .txt p:nth-child(1){font-size: 14px;padding-top: 33px;}
+#discount .slide ul li .txt p:nth-child(2){font-size: 18px;font-weight: 700;padding-top: 11px;}
+#discount .slide ul li .txt p:nth-child(3){font-size: 25px;font-weight: 700;padding-top: 20px;}
+#discount .slide ul li .txt p span{font-size: 20px;font-weight: 700;}
+
+#notice .notice{margin-bottom: 200px;}
+#notice .notice li{float: left;width: 398px;height: 114px;}
+#notice .notice li+li{margin-left: 83px;}
+#notice .notice li:nth-child(1){background: #25BEC4 url("../images/icon/hotel/virus1.png") no-repeat 285px;background-size: 64px;}
+#notice .notice li:nth-child(2){background:#6C3D85 url("../images/icon/hotel/hotel1.png") no-repeat 285px;background-size: 64px;}
+#notice .notice li:nth-child(3){background: #D13D49 url("../images/icon/hotel/maple1.png") no-repeat 285px;background-size: 64px;}
+#notice .notice li a{height: 114px;}
+#notice .notice li a p{padding-left: 48px;}
+#notice .notice li a p:nth-child(1){font-size: 20px;padding-top: 30px;}
+#notice .notice li a p:nth-child(2){font-size: 15px;margin-top: 14px;}
+#notice .notice_top{padding-top: 24px !important;}
+
+
+/* Atrain */
+.w272{width: 272px;}
+.w120{width: 120px;}
+.w152{width: 152px;}
+
+#trainTab .tablist{width: 1200px;height: 104px;margin-top: 130px;}
+#trainTab .tablist .tab{float: left;width: 20%;height:27px;color: #777;text-align: center;border-bottom: 5px solid transparent;cursor: pointer;margin-bottom: 40px;}
+#trainTab .tablist .tab:hover,#trainTab .tablist .tab:focus{color: #333;border-color: #50A7E5;}
+
+#trainTab .tabpanel{position: relative;display: none;}
+#trainTab .tabpanel.active{display: block;}
+
+#tabpanel6 h3{text-align: left;padding-top: 110px;}
+#tabpanel6 .map img{width: 1360px;height: 202px;}
+
+#tabpanel6 .guide ul li{list-style: disc;line-height: 1.5;margin-left: 20px;}
+
+#tabpanel6 .pattern p{font-size: 14px;line-height: 1.5;margin-top: 5px;}
+#tabpanel6 .pattern img{width: 1360px;margin: 0 auto;}
+
+#tabpanel6 .room_info table{border: 1px solid #707070;text-align: center;}
+#tabpanel6 .room_info table .w272,#tabpanel6 .room_info table .w120{border-right: 1px solid #707070;}
+#tabpanel6 .room_info table tr{height: 72px;}
+#tabpanel6 .room_info table tr+tr{border-top: 1px solid #707070;}
+#tabpanel6 .room_info table th,#tabpanel6 .room_info table td{line-height: 72px;}
+#tabpanel6 .room_info table th{font-size: 20px;border-bottom: 1px solid #707070;}
+#tabpanel6 .room_info table th:nth-child(1){background: #D4E5F2;}
+#tabpanel6 .room_info table th:nth-child(2){background: #F4EED9;}
+#tabpanel6 .room_info table th:nth-child(3){background: #F0CFBC;}
+#tabpanel6 .room_info table th:nth-child(4){background: #F9E2BA;}
+#tabpanel6 .room_info table th:nth-child(5),#tabpanel6 .room_info table th:nth-child(6){background: #F8F8F8;}
+#tabpanel6 .room_info table td{font-size: 16px;}
+
+#tabpanel6 .seat_info{height: 500px;}
+#tabpanel6 .seat_info>ul>li{margin-bottom: 40px;width: 100%;}
+#tabpanel6 .seat_info>ul>li,#tabpanel6 .seat_info .odd .txt,#tabpanel6 .seat_info .odd ul,#tabpanel6 .seat_info .odd ul li,#tabpanel6 .seat_info .even .txt,#tabpanel6 .seat_info .even ul,#tabpanel6 .seat_info .even ul li{float: left;}
+#tabpanel6 .seat_info>ul li:nth-child(1){background: #D4E5F2;}
+#tabpanel6 .seat_info>ul li:nth-child(2){background: #F4EED9;}
+#tabpanel6 .seat_info>ul li:nth-child(3){background: #F0CFBC;}
+#tabpanel6 .seat_info>ul li:nth-child(4){background: #F9E2BA;}
+#tabpanel6 .seat_info .odd .txt,#tabpanel6 .seat_info .even .txt{width: 487px;height: 167px;text-align: left;}
+#tabpanel6 .seat_info .odd ul,#tabpanel6 .seat_info .even ul{width: 555px;height: 419px;padding-top: 41px;}
+#tabpanel6 .seat_info .even ul{padding-left: 175px;}
+#tabpanel6 .seat_info .odd ul li:nth-child(1),#tabpanel6 .seat_info .even ul li:nth-child(1){padding-bottom: 26px;}
+#tabpanel6 .seat_info .odd ul li:nth-child(2),#tabpanel6 .seat_info .even ul li:nth-child(2){padding-right: 7px;}
+#tabpanel6 .seat_info .odd .txt p,#tabpanel6 .seat_info .even .txt p{font-size: 16px;}
+#tabpanel6 .seat_info .odd .txt{padding: 166px 143px 166px 175px;}
+#tabpanel6 .seat_info .even .txt{padding: 166px 0 166px 143px;}
+#tabpanel6 .seat_info .odd .txt strong,#tabpanel6 .seat_info .even .txt strong{display: block;padding-bottom: 8px;}
+#tabpanel6 .seat_info .odd .txt .txt_seat,#tabpanel6 .seat_info .even .txt .txt_seat{padding-bottom: 63px;}
+
+
+#tabpanel6 button{width: 180px;height: 83px;background: #083B82;border-radius: 15px;margin: 110px 0 0 1180px;}
+#tabpanel6 button:focus{outline: 3px solid #fc4a1e;}

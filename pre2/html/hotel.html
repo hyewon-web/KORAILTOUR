@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title> 호텔예약-숙소예약 </title>
+    <link rel="stylesheet" href="../css/common/jquery-ui.css">
+    <link rel="stylesheet" href="../css/common/common.css">
+    <link rel="stylesheet" href="../css/common/main.css">
+    <link rel="stylesheet" href="../css/hyunju.css">
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/html5shiv.min.js"></script>
+    <script src="../js/tab.js"></script>
+    <script src="../js/datepiker.js"></script>
+    <script src="../js/jquery.bxslider.min.js"></script>
+    <script src="../js/mouseover.js"></script>
+    <script>
+        $(document).ready(function () {
+            //체크인, 체크아웃
+            $("#from").datepicker();
+            $("#to").datepicker();
+
+            //객실, 성인 정하기
+            $('#formBox .btn_roomopen').on('click', function () {
+                $(this).next().show();
+
+                $('#formBox .btn_roomclose').on('click', function () {
+                    var roomNum = $('#roomAmount').val();
+                    var manNum = $('#manAmount').val();
+                    $(this).closest('.room_cnt').hide();
+                    $('#room').val('객실'+roomNum+'-성인'+manNum);
+                });
+            });
+
+            //객실, 성인 수량증가,감소
+            $('.bt_up').click(function(){ 
+                var n = $('.bt_up').index(this);
+                var num = $(".num:eq("+n+")").val();
+                num = $(".num:eq("+n+")").val(num*1+1); 
+            });
+            $('.bt_down').click(function(){ 
+                var n = $('.bt_down').index(this);
+                var num = $(".num:eq("+n+")").val();
+                num = $(".num:eq("+n+")").val(num*1-1); 
+            });
+            $(".num_item button").on("click",function () {
+                var num = parseInt($(this).siblings('input').val());
+                
+                if ($(this).hasClass("num_up")) num += 1;
+                else if ($(this).hasClass("num_down")) {
+                    num -= 1;
+                    if (num === 0) {
+                        num = 1;
+                        return false;
+                    }
+                }
+                $(this).siblings('input').val(num);
+            });
+
+            $('.slide ul').bxSlider({
+                pager: false,
+                prevText: '이전 컨텐츠 보기',
+                nextText: '다음 컨텐츠 보기',
+                minSlides: 2,
+                maxSlides: 2,
+                moveSlides: 2,
+                slideWidth: 603,
+            });
+            $('.slide .bx-controls-direction a, .slide .bx-controls-auto-item a, .slide .bx-pager-item a').wrapInner('<span class="blind-b"></span>');
+        });
+    </script>
+    <link rel="icon" href="../images/common/Ko.ico">
+
+</head>
+
+<body>
+    <div id="skip">
+        <a href="#fullpage">본문 바로가기</a>
+    </div>
+    <header id="header">
+        <div class="area clearfix p_r">
+            <h1 class="logo p_a">
+                <a href=""><img src="../images/common/nav_logo.png" alt="레츠코레일"></a>
+            </h1>
+            <nav id="gnb">
+                <h2 class="blind-b">주메뉴</h2>
+                <ul class="depth1 cblack clearfix">
+                    <li id="menu1" class="menu">
+                        <a href="">승차권 예약</a>
+                        <ul class="depth2 cblack">
+                            <li>
+                                <a href=""><span>일반 승차권</span></a>
+                            </li>
+                            <li>
+                            <a href=""><span>할인 승차권</span></a>
+                            </li>
+                            <li>
+                                <a href=""><span>4인 동반석</span></a>
+                            </li>
+                            <li>
+                                <a href=""><span>관광 열차</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="menu2" class="menu">
+                        <a href="">관광 열차</a>
+                        <ul class="depth2">
+                            <li class="cblue">
+                                <a href=""><span>동해산타열차</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>동해산타열차 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>동해산타열차 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue menu2">
+                                <a href=""><span>서해금빛열차</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>West gold-train 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>West gold-train 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue">
+                                <a href=""><span>백두대간협곡열차</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>V-train 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>V-train 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue">
+                                <a href=""><span>정선아리랑열차</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>A-train 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>A-train 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue menu2">
+                                <a href=""><span>남도해양열차</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>S-train 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>S-train 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue menu2">
+                                <a href=""><span>평화열차 DMZ</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>DMZ-train 소개</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>DMZ-train 추천여행</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="cblue menu2">
+                                <a href=""><span>레일크루즈해랑</span></a>
+                                <ul class="depth3 cblack">
+                                    <li>
+                                        <a href=""><span>바다열차</span></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>교육열차</span></a>
+                                    </li>
+                                    <li><a href=""><span>국악와인열차</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="menu3" class="menu">
+                        <a href="">자유 여행</a>
+                        <ul class="depth2">
+                            <li class="cblue menu2">
+                                <a href=""><span>국내여행패스</span></a>
+                                <ul class="depth3 cblack">
+                                    <li><a href=""><span>내일로</span></a></li>
+                                    <li><a href=""><span>문화누리패스</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="cblue menu2">
+                                <a href=""><span>해외여행패스</span></a>
+                                <ul class="depth3 cblack">
+                                    <li><a href=""><span>일본패스</span></a></li>
+                                    <li><a href=""><span>기차여행 만들기</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="menu4" class="menu">
+                        <a href="">여행 상품</a>
+                        <ul class="depth2">
+                            <li class="cblue p_r">
+                                <a href=""><span>테마별 패키지</span></a>
+                                <ul class="depth3 cblack">
+                                    <li><a href=""><span>우리지역 대표상품</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="cblue">
+                                <a href=""><span>지역별 패키지</span></a>
+                                <ul class="depth3 cblack">
+                                    <li><a href=""><span>수도권</span></a></li>
+                                    <li><a href=""><span>강원권</span></a></li>
+                                    <li><a href=""><span>충청권</span></a></li>
+                                    <li><a href=""><span>경상권</span></a></li>
+                                    <li><a href=""><span>전라권</span></a></li>
+                                    <li><a href=""><span>제주권</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="cblue">
+                                <a href=""><span>KTX+연계서비스</span></a>
+                                <ul class="depth3 cblack">
+                                    <li><a href=""><span>레일쉽-제주도(목포)</span></a></li>
+                                    <li><a href=""><span>레일쉽-제주도(여수)</span></a></li>
+                                    <li><a href=""><span>레일쉽-제주도(포항)</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="cblue p_a"><a href=""><span>이달의 기차여행</span></a></li>
+                        </ul>
+                    </li>
+                    <li id="menu5" class="menu">
+                        <a href="">숙소 예약</a>
+                        <ul class="depth2 cblack">
+                            <li><a href=""><span>호텔</span></a></li>
+                            <li><a href=""><span>리조트</span></a></li>
+                            <li><a href=""><span>민박</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="bluebox p_a">
+                <a href="">회원가입</a>
+                <a href="">로그인</a>
+            </div>
+        </div>
+    </header>
+    <section>
+        <article id="hotelSearch">
+            <h3 class="blind-b">쉽고 간편하게 호텔 예약하기</h3>
+            <div class="container area">
+                <strong class="font_white">국내호텔 예약은 코레일투어에서!</strong>
+                <form method="get" id="formBox">
+                    <div class="city h">
+                        <label for="city" class="blind-b">여행장소</label> 
+                        <input type="text" id="city" name="city" placeholder="어디로 여행하시나요?">
+                        <button type="button"><img src="../images/icon/hotel/search.png" alt="검색"></button>
+                    </div>
+                    <div class="checkin h">
+                        <label for="from">체크인</label> 
+                        <input type="text" id="from" class="from_to">
+                    </div>
+                    <div class="checkout h">
+                        <label for="to">체크아웃</label>
+                        <input type="text" id="to" class="from_to">
+                    </div>
+                    <!-- 객실, 성인 처리  -->
+                    <div class="room">
+                        <label for="room" class="blind-b">객실, 인원</label>
+                        <input type="text" id="room" placeholder="객실1-성인1">
+                        <button class="btn_roomopen" type="button"><img src="../images/icon/hotel/expand-button.png" alt="확인"></button>
+                        <div class="room_cnt p_a">
+                            <div class="num_item clearfix">
+                                <label for="roomAmount">객실</label>
+                                <div class="inner">
+                                    <input type="text" name="amount" id="roomAmount" value="1" readonly="readonly">
+                                    <button type="button" class="num_down"><img src="../images/icon/hotel/minus.png" alt="수량감소"></button>
+                                    <button type="button" class="num_up"><img src="../images/icon/hotel/plus.png" alt="수량추가"></button>
+                                </div>
+                            </div>
+                            <div class="num_item clearfix">
+                                <label for="manAmount">성인</label>
+                                <div class="inner">
+                                    <input type="text" name="amount" id="manAmount" value="1" readonly="readonly">
+                                    <button type="button" class="num_down"><img src="../images/icon/hotel/minus.png" alt="수량감소"></button>
+                                    <button type="button" class="num_up"><img src="../images/icon/hotel/plus.png" alt="수량추가"></button>
+                                </div>
+                            </div>
+                            <div class="center">
+                                <button class="btn_roomclose font_white boxsizing" type="button">확인</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="font_white search">호텔검색</button>
+                </form>
+
+            </div>
+        </article>
+        <div class="area">
+            <article id="recommend">
+                <h3 class="txt_tit pad_top210">도시별 추천숙소</h3>
+                <div id="localTab">
+                    <ul role="tablist" class="tablist" aria-label="추천숙소의 도시">
+                        <li role="tab" class="tab first" id="tab1" aria-controls="tabpanel1">제주</li>
+                        <li role="tab" class="tab" id="tab2" aria-controls="tabpanel2">서울</li>
+                        <li role="tab" class="tab" id="tab3" aria-controls="tabpanel3">부산</li>
+                        <li role="tab" class="tab" id="tab4" aria-controls="tabpanel4">강릉</li>
+                        <li role="tab" class="tab" id="tab5" aria-controls="tabpanel5">속초</li>
+                        <li role="tab" class="tab" id="tab6" aria-controls="tabpanel6">전주</li>
+                        <li role="tab" class="tab" id="tab7" aria-controls="tabpanel7">인천</li>
+                        <li role="tab" class="tab last" id="tab8" aria-controls="tabpanel8">경주</li>
+                    </ul>
+                    <div role="tabpanel" class="tabpanel boxsizing" id="tabpanel1" aria-labelledby="tab1">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/jeju1.PNG" alt="">
+                                    <p>서귀포(서귀포시)에 위치</p>
+                                    <p>더 아트 스테이 서귀호 하버</p>
+                                    <p>55,140원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/jeju2.PNG" alt="">
+                                    <p>제주(한림)에 위치</p>
+                                    <p>라온호텔 &amp; 리조트</p>
+                                    <p>56,120원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/jeju3.PNG" alt="">
+                                    <p>제주(제주시)에 위치</p>
+                                    <p>호텔 케니스토리 프리미엄 제주 연동 (구. 라마다 앙코르 제주 연동)</p>
+                                    <p>62,864원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/jeju4.PNG" alt="">
+                                    <p>제주(제주시)에 위치</p>
+                                    <p>제주 오리엔탈호텔 카지노</p>
+                                    <p>63,276원<span>~</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tabpanel" id="tabpanel2" aria-labelledby="tab2">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/seoul1.png" alt="">
+                                    <p>마리오 아울렛 부근에 위치</p>
+                                    <p>신라스테이 구로</p>
+                                    <p>63,940원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/seoul2.png" alt="">
+                                    <p>덕수궁 부근에 위치</p>
+                                    <p>신라스테이 서대문</p>
+                                    <p>73,246원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/seoul3.png" alt="">
+                                    <p>광화문 부근에 위치</p>
+                                    <p>신라스테이 광화문</p>
+                                    <p>74,096원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/seoul4.png" alt="">
+                                    <p>전쟁기념관 부근에 위치</p>
+                                    <p>롯데시티호텔 마포</p>
+                                    <p>86,682원<span>~</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tabpanel" id="tabpanel3" aria-labelledby="tab3">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/busan1.png" alt="">
+                                    <p>동백공원 부근에 위치</p>
+                                    <p>이비스 버젯 앰배서더 부산 해운대</p>
+                                    <p>50,038원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/busan2.png" alt="">
+                                    <p>부산 아쿠아리움 부근에 위치</p>
+                                    <p>이비스 앰배서더 부산 해운대</p>
+                                    <p>55,597원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/busan3.png" alt="">
+                                    <p>부산 아쿠아리움 부근에 위치</p>
+                                    <p>라마다 앙코르 해운대</p>
+                                    <p>83,505원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/busan4.png" alt="">
+                                    <p>부산 아쿠아리움 부근에 위치</p>
+                                    <p>신라스테이 해운대</p>
+                                    <p>97,857원<span>~</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tabpanel" id="tabpanel4" aria-labelledby="tab4">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/ganglung1.png" alt="">
+                                    <p>허균.허난설헌 기념공원 부근에 위치</p>
+                                    <p>호텔 큐브</p>
+                                    <p>61,755원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/ganglung2.png" alt="">
+                                    <p>강릉 단오 문화관 부근에 위치</p>
+                                    <p>강릉관광호텔</p>
+                                    <p>77,510원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/ganglung3.png" alt="">
+                                    <p>오죽헌 시립박물관 부근에 위치</p>
+                                    <p>호텔 이스트나인</p>
+                                    <p>96,830원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li><a href="#">
+                                    <img src="../images/hotel/ganglung4.png" alt="">
+                                    <p>오죽헌 시립박물관 부근에 위치</p>
+                                    <p>강릉 그레이 호텔</p>
+                                    <p>104,075원<span>~</span></p>
+                                    </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tabpanel" id="tabpanel5" aria-labelledby="tab5">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/sokcho1.jpg" alt="">
+                                    <p>동명항 부근에 위치</p>
+                                    <p>위드유 호텔 &amp; 게스트하우스</p>
+                                    <p>48,990원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/sokcho2.jpg" alt="">
+                                    <p>속초시립박물관 및 실향민 민속촌 부근에 위치</p>
+                                    <p>현대 수 리조트 속초</p>
+                                    <p>58,305원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/special3.PNG" alt="">
+                                    <p>동명항 부근에 위치</p>
+                                    <p>팜파스 리조트</p>
+                                    <p>71,070원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/special4.PNG" alt="">
+                                    <p>Seorak Cable Car 부근에 위치</p>
+                                    <p>켄싱턴 호텔 설악</p>
+                                    <p>77,232원<span>~</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tabpanel" id="tabpanel6" aria-labelledby="tab6">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/jeonju2.png" alt="">
+                                    <p>동락원 부근에 위치</p>
+                                    <p>재즈 어라운드 호텔</p>
+                                    <p>69,920원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/jeonju2.png" alt="">
+                                    <p>전주 시청 부근에 위치</p>
+                                    <p>로니호텔</p>
+                                    <p>86,595원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li><a href="#">
+                                    <img src="../images/hotel/jeonju3.png" alt="">
+                                    <p>전주 영화종합촬영소 부근에 위치</p>
+                                    <p>더클래식호텔</p>
+                                    <p>127,535원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li><a href="#">
+                                    <img src="../images/hotel/jeonju4.png" alt="">
+                                    <p>전주 시청 부근에 위치</p>
+                                    <p>라마다 전주</p>
+                                    <p>146,280원<span>~</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tabpanel" id="tabpanel7" aria-labelledby="tab7">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/incheon1.png" alt="">
+                                    <p>스카이72 골프클럽 부근에 위치</p>
+                                    <p>골든튤립 인천공항 호텔 &amp; 스위트</p>
+                                    <p>65,407원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/incheon2.jpg" alt="">
+                                    <p>인천(송도)에 위치</p>
+                                    <p>라마다 송도 호텔</p>
+                                    <p>81,765원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li><a href="#">
+                                    <img src="../images/hotel/incheon3.png" alt="">
+                                    <p>인천(송도)에 위치</p>
+                                    <p>송도 센트럴파크 호텔</p>
+                                    <p>117,986원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li><a href="#">
+                                    <img src="../images/hotel/incheon4.png" alt="">
+                                    <p>바닷가에 위치</p>
+                                    <p>네스트 호텔 인천</p>
+                                    <p>140,857원<span>~</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div role="tabpanel" class="tabpanel" id="tabpanel8" aria-labelledby="tab8">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/gyeongju1.png" alt="">
+                                    <p>경주 민속공예촌 부근에 위치</p>
+                                    <p>청공한옥스테이</p>
+                                    <p>52,555원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/gyeongju2.jpg" alt="">
+                                    <p>경주 스프링돔 부근에 위치</p>
+                                    <p>켄싱턴리조트 경주</p>
+                                    <p>65,794원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/gyeongju3.jpg" alt="">
+                                    <p>Gyeongju Seorabeol Culture Hall 부근에 위치</p>
+                                    <p>경주 지지 관광호텔</p>
+                                    <p>92,230원<span>~</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="../images/hotel/gyeongju4.jpg" alt="">
+                                    <p>화백국제컨벤션센터 부근에 위치</p>
+                                    <p>베니키아 스위스 로젠 호텔</p>
+                                    <p>92,911원<span>~</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+            <article id="discount">
+                <h3 class="txt_tit pad_top210">초특가 할인</h3>
+                <div class="slide">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="../images/hotel/special1.PNG" alt="">
+                                <div class="font_white txt">
+                                    <p>제주(제주시)에 위치</p>
+                                    <p>휘슬락 호텔</p>
+                                    <p>71,356원<span> ~</span></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="../images/hotel/special2.PNG" alt="">
+                                <div class="font_white txt">
+                                    <p>제주(제주시)에 위치</p>
+                                    <p>호텔위드제주</p>
+                                    <p>70,165원<span> ~</span></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="../images/hotel/special3.PNG" alt="">
+                                <div class="font_white txt">
+                                    <p>제주(애월)에 위치</p>
+                                    <p>흰수염고래리조트</p>
+                                    <p>70,035원<span> ~</span></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="../images/hotel/special4.PNG" alt="">
+                                <div class="font_white txt">
+                                    <p>서귀포(성산)에 위치</p>
+                                    <p>스위트 제주 호텔 앤 리조트</p>
+                                    <p>70,150원<span> ~</span></p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </article>
+            <article id="notice" class="pad_top210">
+                <h3 class="blind-b">공지사항 및 이벤트</h3>
+                <ul class="notice font_white clearfix">
+                    <li>
+                        <a href="#">  
+                            <p>코로나 바이러스 공지</p>
+                            <p>예약 및 취소 관련안내</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p>당일 호텔 특가</p>
+                            <p>갈까말까 고민말고 고!</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <p class="notice_top">강력 秋천!</p>
+                            <p>가을 얼리버드 특가<br>인생 단풍여행</p>
+                        </a>
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="area in_foot">
+            <ul>
+                <li><a href="#">홈페이지이용약관</a></li>
+                <li><a href="#">여객운송약관/부속약관</a></li>
+                <li class="privacy"><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">저작권정책</a></li>
+                <li><a href="#">정보공개</a></li>
+            </ul>
+            <div class="longtxt">
+                <p>대표자 : 손병석 | 상호 : 한국철도공사 | 사업자등록 : 314-52-10024 | 통신판매업신고 : 대전동구-0233호 <address> | 주소 : (34618) 대전광역시
+                        동구 중앙로 240 </address> | TEL : 1544-7788 | FAX : 02-361-8385</p>
+            </div>
+            <p class="copy">COPYRIGHT @ KOREA RAILROAD. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

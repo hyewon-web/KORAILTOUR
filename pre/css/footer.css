@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+body,ul,p{margin: 0;padding: 0;}
+ul{list-style: none;}
+a:link,a:hover,a:visited,a:active{text-decoration: none;color: inherit;}
+footer{display: block;}
+address{font-style: normal;}
+
+#footer{height: 300px;width: 1360px;margin: 100px auto;border-top: 1px solid #777;background: yellow;}
+
+#footer ul{height: 19px;margin-bottom: 113px;}
+#footer li{float: left;width: 272px;border-right: 1px solid #083b82;text-align: center;line-height: 19px;}
+#footer .privacy{color: #083b82;}
+#footer div>*{float: left;}
+#footer address{display: inline-block;}
+#footer .copy{margin-top: 33px;}

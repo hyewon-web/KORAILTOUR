@@ -1,0 +1,278 @@
+@charset "utf-8";
+
+/* index 공통 */
+#header{position: fixed;top: 0;left: 0;width: 100%; z-index: 100;}
+
+body{font-family: "Noto Sans KR";font-size: 16px;color: #333333;line-height: 1.5;}
+.con_tit{letter-spacing: -0.7px; font-size: 50px; font-weight: bold;text-align: center;}
+.c_sub_tit{letter-spacing: -0.7px; font-size: 30px; font-weight: bold;text-align: center;}
+
+
+/* ------- railro page start ------- */
+/* contents */
+/* #mainSlider */
+#mainSlider, #mainSlider .visual li{width: 100%;height: 790px;}
+#mainSlider{position: relative;}
+#mainSlider .visual li{background: no-repeat center top;color: #ffffff;text-align: center;line-height: 52px;}
+#mainSlider .visual li:nth-child(1){background-image: url("../images/railpass/main1.jpg");}
+#mainSlider .visual li:nth-child(2){background-image: url("../images/railpass/main2.jpg");}
+#mainSlider .visual li:nth-child(3){background-image: url("../images/railpass/main3.jpg");}
+
+.tit_p{display: block;margin-top: 208px;letter-spacing: -0.7px; font-weight: 200;}
+.tit{display: block;padding-top: 21px; letter-spacing: -0.7px; font-size: 60px;
+    font-weight: bold;}
+.sub_tit{display: block; padding-top: 10px; font-weight: 400;font-size: 50px;}
+#mainSlider .visual li p{letter-spacing: -0.5px; padding-top: 10px;font-weight: 200; font-size: 18px; line-height: 28px;}
+
+/* 제어 버튼들 : 스크립트에서 동적 생성 */
+#mainSlider .bx-controls-direction a, #mainSlider .bx-controls-auto, #mainSlider .bx-pager{position: absolute;z-index: 100;}
+/* 이전 , 다음 */
+#mainSlider .bx-controls-direction a{top: 312px;width: 54px;height: 53px;}
+#mainSlider .bx-controls-direction .bx-prev{left: 20px;background: url("../images/railpass/icon/btn_prev.png");}
+#mainSlider .bx-controls-direction .bx-next{right: 20px;background: url("../images/railpass/icon/btn_next.png");}
+
+/* play, stop */
+#mainSlider .bx-controls-auto{top: 550px;left: calc(50% + 36.5px);}
+#mainSlider .bx-controls-auto a{display: block;width: 27px;height: 27px;background: url("../images/railpass/icon/btn_pause_play.png") no-repeat;}
+#mainSlider .bx-controls-auto .bx-start{background-position: right top;}
+#mainSlider .bx-controls-auto .bx-stop{background-position: left top;}
+#mainSlider .bx-controls-auto a.active{display: none;}/* 현재 동작중인 버튼이 .active라는 클래스명을 가짐 */
+
+/* 페이징 인디케이터 */
+#mainSlider .bx-pager{top: 556px;left: calc(50% - 63.5px);width: 100px;height: 15px;}
+#mainSlider .bx-pager div{float: left;width: 15px;margin-right: 10px;}
+#mainSlider .bx-pager div a{display: block;height: 15px;border: 2px solid #fff;box-sizing: border-box;border-radius: 50%;}
+#mainSlider .bx-pager div a.active{background: #ffffff;}
+
+
+/* #con1 : 내일로패스란? */
+#con1{height: 702px; margin-top: 210px;
+  background-image: url("../images/railpass/con1.jpg"); overflow: hidden; color: #ffffff;}
+  
+#con1 h2{padding-top: 393px; text-align: left;margin-left: 40px;}
+#con1 p{display: block; margin-left: 40px; padding-top: 8px; letter-spacing: -0.7px;}
+  
+/* #con2 : 내일로패스란? */
+#con2{height: 702px; margin-top: 210px; color: #333333; text-align: center;}
+
+#con2 ul{ height: 400px;margin-top: 40px; text-align: center;} 
+#con2 ul li{position: relative; float: left;margin-left: 145px; width: 301px;}
+#con2 ul li+li{margin-left: 83px;}
+#con2 li strong:hover{background-color: #50a7e5; }
+#con2 .circle strong{display: table; letter-spacing: -0.7px; font-size: 32px;width: 301px; height: 301px;box-shadow: 8px 11.5px 50px 0 rgba(0, 0, 0, 0.2);  background-color: #eeeeee; border-radius: 50%;}
+#con2 .circle strong span{display: table-cell;vertical-align:middle;}
+#con2 ul p{display: block; margin-top: 62px; letter-spacing: -0.7px;font-size: 20px;}
+#con2 ul li:nth-child(3), #con2 strong p{padding-top: 10px;}
+
+/* #con3 : 내일로 이용안내 - 첫번째 tab*/
+
+/* #mainTab */
+/* 1) 탭 크기 지정 */
+#mainTab{width: 1170px;height: 680px;margin: 100px auto;text-align: center;}
+/* 2) 탭그룹의 높이와 하단 여백 */
+#mainTab .tablist{height: 50px;margin-bottom: 30px;}
+/* 3) 탭을 한줄에 위치, 스타일 */
+#mainTab .tab{float: left;width: 380px;height: 50px;line-height: 48px;border: 1px solid #ccc;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;background: #f2f2f2;font-size: 18px;color: #000;}
+#mainTab .tab + .tab{margin-left: 15px;}
+/* 4) 탭버튼 활성화 - 오버, li.active (포커스는 제외) */
+#mainTab .tab:hover, #mainTab .tab.active{background: #00326c;color: #ffffff;cursor: pointer;}
+/* 5) 탭패널 공통스타일 - 마지막 자식인 자세히보기링크를 absolute주기 위해, 모든 탭패널은 숨기고, .active를 가질 경우만 보이게 처리 */
+#mainTab .tabpanel{position: relative;padding-bottom: 70px;display: none;color: #ffffff;}
+#mainTab .tabpanel.active{display: block;}
+#con3{position: relative; height: 752px; margin-top: 210px;color: #333333; text-align: center;}
+#con3 .graybox_l, #con3 .graybox_r{position: absolute; float: left; width: 496px;height: 321px;
+margin-top: 100px;border-radius: 15px;background-color: #f3f3f3;color:#333;}
+#con3 .graybox_l{margin-left: 84px;}
+#con3 .graybox_r{margin-left: 600px;} 
+#con3 .pinkbar, #con3 .bluebar{width: 424px;height: 74px;border-radius: 27px;
+    line-height: 74px;margin-left: 34px;
+    margin-top: -50px; font-size: 30px;color: #ffffff;}
+#con3 .pinkbar{background-color: #ff98c7;}
+#con3 .bluebar{background-color: #3bb6f2;}
+#con3 .in_txt{margin-left: 110px; margin-top: 47px;font-size: 24px;text-align: left;}
+#con3 .bo_txt{position: absolute; float: left; margin-left: 84px; margin-top: 450px;
+font-size: 24px;text-align: left;color:#333333;}
+
+.tab2_wrap{margin-top: 100px;}
+.tab3_wrap{margin-top: 170px;}
+.a_tit{margin-top: 100px; font-size: 30px;color:#333333;}
+#tabpanel2 p, #tabpanel3 p{margin: 47px;font-size: 20px; color:#333333;}
+
+/* con4 : 구매 및 좌석 지정방법 -tab2 */
+#con4{height: 2000px; margin-top: 210px;color: #333333; text-align: center;}
+
+/* #con4Tab */
+/* 1) 탭 크기 지정 */
+#con4Tab{width: 1360px;height: 680px;margin: 100px auto;text-align: center;position: relative; }
+/* 2) 탭그룹의 높이와 하단 여백 */
+#con4Tab .tablist{width: 1360px;height: 20px;
+  margin-bottom: 30px;}
+/* 3) 탭을 한줄에 위치, 스타일 */
+#con4Tab .tab{float: left;width: 680px;height: 50px;line-height: 48px;border: 1px solid #ccc;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;background: #d4d4d4;font-size: 18px;color: #000;}
+/* 4) 탭버튼 활성화 - 오버, li.active (포커스는 제외) */
+#con4Tab .tab:hover,#con4Tab .tab.active{background: #50a7e5; color: #ffffff;cursor: pointer;}
+/* 5) 탭패널 공통스타일 - 마지막 자식인 자세히보기링크를 absolute주기 위해, 모든 탭패널은 숨기고, .active를 가질 경우만 보이게 처리 */
+#con4Tab .tabpanel{position: relative;padding-bottom: 70px;display: none;color: #333333;}
+#con4Tab .tabpanel.active{display: block;}
+#con4Tab .bg{background:#f3f3f3 ;width: 1360px;height: 1731px;}
+
+.app_txt{font-size: 28px;padding:60px 0; height: 84px;}
+.app_txt p{font-size: 18px;}
+.applist li{float: left;margin-left: 90px;margin-top: 60px;}
+.applist li figcaption{font-size: 20px;margin-top: 17px;}
+.applist li figure img{width: 338px;height: 581px;z-index: 999;}
+
+/* con5 : 주의사항 */
+#con5{ height: 323px;color: #333333;text-align: center;margin-top: 210px;}
+#con5 .con5_txt{margin-top: 28px; text-align: left; padding: 40px 0 40px 100px; line-height: 60px; background:#f3f3f3;font-size: 20px}  
+
+/* con6 : 문의처 */
+#con6{margin-top: 210px;
+ margin-bottom: 37px; color: #333333; text-align: center;}
+#con6 .con6_txt, #con6 figure{float: left;margin: 37px 0;}
+#con6 .con6_txt{ width:948px; height: 236px;  background:#f3f3f3; }
+#con6 strong{display: block; padding-top:68px; padding-bottom: 26px; font-size: 30px;}
+
+/* ------- tour page start ------- */
+
+#t_mainSlider ul li h2{display: block;margin-top: 274px;  letter-spacing: -0.7px; font-size: 60px;
+    font-weight: bold;}
+#t_mainSlider ul li strong{display: block; margin-top: 21px; font-weight: 400;font-size: 50px;}
+#t_mainSlider form{margin-top: 65px;text-align: center;}
+#t_mainSlider form input{width: 400px; height: 60px;text-align: center;border-radius: 10px;color: #333333}
+#t_mainSlider button{width: 60px;height: 60px;background: #eee; border-radius: 10px;color: #333333}
+#t_mainSlider button:focus, #t_mainSlider button:hover{background: #50a7e5;color:#ffffff;}
+#t_mainSlider button img{width: 50px;height: 50px;}
+
+
+#t_mainSlider ul li h2{display: block;margin-top: 274px;  letter-spacing: -0.7px; font-size: 60px;
+    font-weight: bold;}
+#t_mainSlider ul li strong{display: block; margin-top: 21px; font-weight: 400;font-size: 50px;}
+#t_mainSlider form{margin-top: 65px;text-align: center;}
+#t_mainSlider form input{width: 400px; height: 60px;text-align: center;border-radius: 10px;color: #333333}
+#t_mainSlider button{width: 60px;height: 60px;background: #eee; border-radius: 10px;color: #333333}
+#t_mainSlider button:focus, #t_mainSlider button:hover{background: #50a7e5;color:#ffffff;}
+#t_mainSlider button img{width: 50px;height: 50px;}
+
+/* #t_mainSlider */
+#t_mainSlider, #t_mainSlider .visual li{width: 100%;height: 790px;}
+#t_mainSlider{position: relative;}
+#t_mainSlider .visual li{background: no-repeat center top;color: #ffffff;text-align: center;line-height: 52px;}
+#t_mainSlider .visual li:nth-child(1){background-image: url("../images/tour/main1.jpg");}
+#t_mainSlider .visual li:nth-child(2){background-image: url("../images/tour/main2.jpg");}
+#t_mainSlider .visual li:nth-child(3){background-image: url("../images/tour/main3.jpg");}
+
+/* 제어 버튼들 : 스크립트에서 동적 생성 */
+#t_mainSlider .bx-controls-direction a, #t_mainSlider .bx-controls-auto, #t_mainSlider .bx-pager{position: absolute;z-index: 100;}
+/* 1) 이전 , 다음 */
+#t_mainSlider .bx-controls-direction a{top: 312px;width: 54px;height: 53px;}
+
+
+/* 2) play, stop */
+#t_mainSlider .bx-controls-auto{top: 550px;left: calc(50% + 36.5px);}
+#t_mainSlider .bx-controls-auto a{display: block;width: 27px;height: 27px;background: url("../images/railpass/icon/btn_pause_play.png") no-repeat;}
+#t_mainSlider .bx-controls-auto .bx-start{background-position: right top;}
+#t_mainSlider .bx-controls-auto .bx-stop{background-position: left top;}
+#t_mainSlider .bx-controls-auto a.active{display: none;}/* 현재 동작중인 버튼이 .active라는 클래스명을 가짐 */
+
+/* 3) 페이징 인디케이터 */
+#t_mainSlider .bx-pager{top: 556px;left: calc(50% - 63.5px);width: 100px;height: 15px;}
+#t_mainSlider .bx-pager div{float: left;width: 15px;margin-right: 10px;}
+#t_mainSlider .bx-pager div a{display: block;height: 15px;border: 2px solid #fff;box-sizing: border-box;border-radius: 50%;}
+#t_mainSlider .bx-pager div a.active{background: #ffffff;}
+/* // slider end! */
+
+/* ------- area ------- 
+    #tcon1 : 국내여행 지역별 BEST - 
+      #localTab*/
+
+/* 1) 탭의 크기 지정 */
+#localTab{width: 1200px;height: 549px;margin: 100px auto;}
+/* 2) .tablist에게 자식이 float되어 부모가 높이를 인식하지 못하는 문제 해결 */
+#localTab .tablist{height: 46px;margin-bottom: 40px;}
+/* 3) .tab이라는 li를 한줄에 위치 */
+#localTab .tab{position: relative;float: left;width: 200px;line-height: 44px;border-bottom: 5px solid #aaa;text-align: center;cursor: pointer;}
+/* 4) .tab.active 라는 클래스명을 가져 활성화 되었을 경우ㅡ*/
+#localTab .tab.active{color: #50a7e5;border-bottom-color: #50a7e5;}
+#localTab .tab.active::after{content: "";position: absolute;bottom: -8px;left: calc(50% - 6.5px);width: 13px;height: 8px;background: url("../images/tab_b_icon.png") no-repeat;}
+/* left: 50%;margin-left: -6.5px; */
+/* 5) .tabpanel 모두를 숨기고 .tabpanel.active를 동시에 갖을 경우만 보이게 처리 */
+#localTab .tabpanel{display: none;}
+#localTab .tabpanel.active{display: block;}
+/* 6) .tabpanle li 제어 */
+#localTab .tabpanel ul{float: left;position: relative; transition-duration: 0s;}
+#localTab .tabpanel ul li{float: left;position: relative; width: 260px;}
+#localTab .tabpanel ul li+li{margin-left: 53px;}
+#localTab .tabpanel ul li a{position: relative;
+    display: inline-block;width: 260px; height: 404px;
+    background: #fff;border-radius: 8px;overflow: hidden;
+    box-shadow: 1px 3px 6px 0 rgba(0, 0, 0, 0.1);
+}
+#localTab .tabpanel .inner-top{display: block;height: 220px;overflow: hidden;}
+#localTab .tabpanel .inner-top img{transform: scale(1);transition: all 0.5s;}
+#localTab .tabpanel .inner-top img:hover{transform: scale(1.1);}
+#localTab .tabpanel .inner-bottom{display: block;padding: 30px 20px;box-sizing: border-box;min-height: 144px;}
+#localTab .tabpanel .inner-tit{display: block;font-size: 16px; font-weight: 700; color: #333}
+#localTab .tabpanel .inner-cont{display: block;font-size: 14px;height: 40px;color: #333;margin: 10px 0;line-height: 1.4em;}
+#localTab .tabpanel .inner-price{display: block;font-size: 16px;color: #f2312c;font-weight: bold;margin-top: 8px;line-height: normal;}
+
+/* #tcon2 : 오늘의 핫 키워드 #테마여행 #패키지 */
+#tcon2{width: 1360px; height: 645px; text-align: center;}
+
+#tcon2 ul{height: 400px;margin-top: 135px; text-align: center;margin-left:56px;} 
+#tcon2 ul li{position: relative; float: left;}
+#tcon2 ul .circle{width: 301px;margin:0 53px;}
+#tcon2 li strong:hover{background-color: #50a7e5; }
+#tcon2 .circle strong{display: table; letter-spacing: -0.7px; font-size: 32px;width: 301px; height: 301px;box-shadow: 8px 11.5px 50px 0 rgba(0, 0, 0, 0.2);  background-color: #eeeeee; border-radius: 50%;}
+#tcon2 .circle strong span{display: table-cell;vertical-align:middle;}
+.arr_l, .arr_r{font-size: 50px;padding-top: 125px;}
+
+/* #tcon3 : 이벤트 배너 슬라이드*/
+#tcon3{width: 1360px; height: 402px; margin-top: 210px;}
+
+/* #eventSlider */
+#eventSlider, #eventSlider .visual li{width: 100%;height: 410px;}
+#eventSlider{position: relative;}
+#eventSlider .visual li{background: no-repeat center top;color: #ffffff;text-align: center;line-height: 52px;}
+#eventSlider .visual li:nth-child(1){background-image: url("../images/tour/banner1.jpg");}
+#eventSlider .visual li:nth-child(2){background-image: url("../images/tour/banner2.jpg");}
+#eventSlider .visual li:nth-child(3){background-image: url("../images/tour/banner3.jpg");}
+
+/* 제어 버튼들 : 스크립트에서 동적 생성 */
+#eventSlider .bx-controls-direction a, #eventSlider .bx-controls-auto, #eventSlider .bx-pager{position: absolute;z-index: 100;}
+
+/* play, stop */
+#eventSlider .bx-controls-auto{top: 350px;left: calc(50% + 36.5px);}
+#eventSlider .bx-controls-auto a{display: block;width: 27px;height: 27px;background: url("../images/tour/icon/btn_pause_play.png") no-repeat;}
+#eventSlider .bx-controls-auto .bx-start{background-position: right top;}
+#eventSlider .bx-controls-auto .bx-stop{background-position: left top;}
+#eventSlider .bx-controls-auto a.active{display: none;}/* 현재 동작중인 버튼이 .active라는 클래스명을 가짐 */
+
+/* 페이징 인디케이터 */
+#eventSlider .bx-pager{top: 356px;left: calc(50% - 63.5px);width: 100px;height: 15px;}
+#eventSlider .bx-pager div{float: left;width: 15px;margin-right: 10px;}
+#eventSlider .bx-pager div a{display: block;height: 15px;border: 2px solid #fff;box-sizing: border-box;border-radius: 50%;}
+#eventSlider .bx-pager div a.active{background: #ffffff;}
+
+/* #tcon4 : 할인 & 특별 추천 패키지*/
+#tcon4{width: 1360px; height: 602px; margin-top: 210px; }
+#tcon4 ul{width: 1251px; height: 361px;margin-top: 135px;margin-left: 55px;}
+#tcon4 ul li{width: 290px; overflow: hidden; float: left;}
+#tcon4 ul li+li{margin-left: 30px;}
+
+/* #tcon5 : 코레일 투어 생생후기*/
+#tcon5{width: 1360px; margin-top: 210px;}
+.review{position: relative; left: 0;top: 0; height: 315px;background:#f7f7f7;margin-top: 135px;margin-bottom: 231px;}
+.youtube{position: absolute;left: 0;top: 0;width:560px; height:315px;}
+.review_box{position: absolute; left: 660px;top: 0;padding: 50px;}
+.review img{position: absolute; left: -80px;top: 50px;width: 100px; height: 100px;z-index: 10;}
+.review_box>p{position: absolute; top: 290px;right:70px;
+    display: inline-block; font-size: 15px;color: #666;font-weight: 400;}
+.review_box>p:hover, .review_box>p:focus{text-decoration: underline;cursor: pointer;}
+.arrow{position: absolute; display: block; top: 37px;left:-7px;width: 12px;height: 12px;transform: rotate(135deg)!important;background-color: #fff;z-index: 2;}
+.box{position: relative;  width: 550px; height: 155px;padding: 45px 40px 30px;background-color: #fff; border-radius: 13px;
+    -webkit-box-shadow: 6px 6px 30px hsla(0,0%,41.6%,.1);
+    box-shadow: 6px 6px 30px hsla(0,0%,41.6%,.1);}
+.review_tit{font-size: 24px;word-break: keep-all;line-height: 1.6;}
+.date{margin-left: 10px;font-size: 20px;}
+.review_txt{font-size: 15px;margin-top: 20px; margin-left: 10px; line-height: 1.6;color: #333;}

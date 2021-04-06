@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title> 코레일투어 :: 내일로패스 </title>
+  <link rel="stylesheet" href="../css/common/common.css">
+  <link rel="stylesheet" href="../css/hyewon.css">
+  <link rel="shortcut icon" href="../images/common/Ko.ico">
+  <script src="../js/jquery-1.12.4.min.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/jquery.bxslider.min.js"></script>
+  <script src="../js/tab.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#mainSlider .visual').bxSlider({
+        mode: 'fade', //'horizontal'(기본값), 'vertical', 'fade'
+        auto: true, //false(기본값), 자동실행을 원하면 추가
+        pause: 2000, //4000(4초 기본값), 1초 = 1000
+        autoControls: true, //시작과 정지버튼 생성, 기본값 false
+        ariaLive: true, //스크린리더 사용자에게 변경된 정보를 알릴지 여부
+        ariaHidden: true, //보여지는 슬라이더 내용인지 여부
+        prevText: '이전 슬라이더 보기',
+        nextText: '다음 슬라이더 보기',
+        startText: '애니메이션 시작',
+        stopText: '애니메이션 정지',
+        //창사이즈에 변화가 생길때 추가
+        onSliderResize: function () {
+          $('#mainSlider .bx-pager-item a').wrapInner('<span class="blind-b"></span>');
+        }
+      });
+
+      //bxslider에서 동적생성된 태그를 wrapInner()메서드를 통해 컨텐츠를 감싸는 태그를 추가 생성
+      $('#mainSlider .bx-controls-direction a, #mainSlider .bx-controls-auto-item a, #mainSlider .bx-pager-item a')
+        .wrapInner('<span class="blind-b"></span>');
+
+      // skip네비게이션 
+      $('#skip a').on('click', function () {
+        var target = $(this).attr('href');
+        console.log(target);
+
+        $(target).attr('tabIndex', -1).focus();
+
+        return false;
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- header 시작 -->
+  <div id="skip">
+    <a href="">본문 바로가기</a>
+  </div>
+  <header id="header">
+    <div class="area clearfix p_r">
+      <h1 class="logo p_a">
+        <a href=""><img src="../images/common/nav_logo.png" alt="레츠코레일"></a>
+      </h1>
+      <nav id="gnb">
+        <h2 class="blind-b">주메뉴</h2>
+        <ul class="depth1 cblack clearfix">
+          <li id="menu1" class="menu">
+            <a href="">승차권 예약</a>
+            <ul class="depth2 cblack">
+              <li>
+                <a href=""><span>일반 승차권</span></a>
+              </li>
+              <li>
+                <a href=""><span>할인 승차권</span></a>
+              </li>
+              <li>
+                <a href=""><span>4인 동반석</span></a>
+              </li>
+              <li>
+                <a href=""><span>관광 열차</span></a>
+              </li>
+            </ul>
+          </li>
+          <li id="menu2" class="menu">
+            <a href="">관광 열차</a>
+            <ul class="depth2">
+              <li class="cblue">
+                <a href=""><span>동해산타열차</span></a>
+                <ul class="depth3 cblack">
+                  <li>
+                    <a href=""><span>동해산타열차 소개</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>동해산타열차 추천여행</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="cblue menu2">
+                <a href=""><span>서해금빛열차</span></a>
+                <ul class="depth3 cblack">
+                  <li>
+                    <a href=""><span>West gold-train 소개</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>West gold-train 추천여행</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="cblue">
+                <a href=""><span>백두대간협곡열차</span></a>
+                <ul class="depth3 cblack">
+                  <li>
+                    <a href=""><span>V-train 소개</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>V-train 추천여행</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="cblue">
+                <a href=""><span>정선아리랑열차</span></a>
+                <ul class="depth3 cblack">
+                  <li>
+                    <a href=""><span>A-train 소개</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>A-train 추천여행</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="cblue menu2">
+                <a href=""><span>남도해양열차</span></a>
+                <ul class="depth3 cblack">
+                  <li>
+                    <a href=""><span>S-train 소개</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>S-train 추천여행</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="cblue menu2">
+                <a href=""><span>평화열차 DMZ</span></a>
+                <ul class="depth3 cblack">
+                  <li>
+                    <a href=""><span>DMZ-train 소개</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>DMZ-train 추천여행</span></a>
+                  </li>
+                </ul>
+              </li>
+              <li class="cblue menu2">
+                <a href=""><span>레일크루즈해랑</span></a>
+                <ul class="depth3 cblack">
+                  <li>
+                    <a href=""><span>바다열차</span></a>
+                  </li>
+                  <li>
+                    <a href=""><span>교육열차</span></a>
+                  </li>
+                  <li><a href=""><span>국악와인열차</span></a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="menu3" class="menu">
+            <a href="">자유 여행</a>
+            <ul class="depth2">
+              <li class="cblue menu2">
+                <a href=""><span>국내여행패스</span></a>
+                <ul class="depth3 cblack">
+                  <li><a href=""><span>내일로</span></a></li>
+                  <li><a href=""><span>문화누리패스</span></a></li>
+                </ul>
+              </li>
+              <li class="cblue menu2">
+                <a href=""><span>해외여행패스</span></a>
+                <ul class="depth3 cblack">
+                  <li><a href=""><span>일본패스</span></a></li>
+                  <li><a href=""><span>기차여행 만들기</span></a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="menu4" class="menu">
+            <a href="">여행 상품</a>
+            <ul class="depth2">
+              <li class="cblue p_r">
+                <a href=""><span>테마별 패키지</span></a>
+                <ul class="depth3 cblack">
+                  <li><a href=""><span>우리지역 대표상품</span></a></li>
+                </ul>
+              </li>
+              <li class="cblue">
+                <a href=""><span>지역별 패키지</span></a>
+                <ul class="depth3 cblack">
+                  <li><a href=""><span>수도권</span></a></li>
+                  <li><a href=""><span>강원권</span></a></li>
+                  <li><a href=""><span>충청권</span></a></li>
+                  <li><a href=""><span>경상권</span></a></li>
+                  <li><a href=""><span>전라권</span></a></li>
+                  <li><a href=""><span>제주권</span></a></li>
+                </ul>
+              </li>
+              <li class="cblue">
+                <a href=""><span>KTX+연계서비스</span></a>
+                <ul class="depth3 cblack">
+                  <li><a href=""><span>레일쉽-제주도(목포)</span></a></li>
+                  <li><a href=""><span>레일쉽-제주도(여수)</span></a></li>
+                  <li><a href=""><span>레일쉽-제주도(포항)</span></a></li>
+                </ul>
+              </li>
+              <li class="cblue p_a"><a href=""><span>이달의 기차여행</span></a></li>
+            </ul>
+          </li>
+          <li id="menu5" class="menu">
+            <a href="">숙소 예약</a>
+            <ul class="depth2 cblack">
+              <li><a href=""><span>호텔</span></a></li>
+              <li><a href=""><span>리조트</span></a></li>
+              <li><a href=""><span>민박</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="bluebox p_a">
+        <a href="">회원가입</a>
+        <a href="">로그인</a>
+      </div>
+    </div>
+  </header>
+  <!-- //header 끝-->
+
+
+  <section id="mainSlider">
+    <!-- 슬라이더 순서: visual 컨텐츠 -> 이전, 다음 -> play, stop -> 페이지번호 -->
+    <ul class="visual">
+      <li>
+        <p class="tit_p">패스 하나로 전국을 자유롭게 떠나보자</p>
+        <h2 class="tit">내일로패스</h2>
+        <strong class="sub_tit">- 두번째 이야기 -</strong>
+        <p>"전 국민 누구나 즐기는 7일간의 자유여행!"<br>
+          보다 더 자유롭고 편안해진 내일로를 경험해보세요.</p>
+      </li>
+      <li>
+        <p class="tit_p">패스 하나로 전국을 자유롭게 떠나보자</p>
+        <h2 class="tit">내일로패스</h2>
+        <strong class="sub_tit">- 두번째 이야기 -</strong>
+        <p>"전 국민 누구나 즐기는 7일간의 자유여행!"<br>
+          보다 더 자유롭고 편안해진 내일로를 경험해보세요.</p>
+      </li>
+      <li>
+        <p class="tit_p">패스 하나로 전국을 자유롭게 떠나보자</p>
+        <h2 class="tit">내일로패스</h2>
+        <strong class="sub_tit">- 두번째 이야기 -</strong>
+        <p>"전 국민 누구나 즐기는 7일간의 자유여행!"<br>
+          보다 더 자유롭고 편안해진 내일로를 경험해보세요.</p>
+      </li>
+    </ul>
+  </section>
+
+  <div class="area">
+    <!-- 1360픽셀 문서 가운데 위치 - 공통클래스 선언 -->
+    <section id="con1">
+      <h2 class="con_tit">내일로 패스란?</h2>
+      <p>패스 한장으로 일정기간 동안 해당 열차를<br>
+        무제한 이용하여 여행할 수 있는 철도 자유 여행 패스 입니다.</p>
+    </section>
+    <section id="con2">
+      <h2 class="con_tit">내일로 두번째 이야기</h2>
+      <h4 class="c_sub_tit">무엇이 바뀌었나?</h4>
+      <ul class="circles">
+        <li class="circle">
+          <strong>
+            <span>누구나 언제든지</span>
+          </strong>
+          <p>전 국민 누구나 이용할 수<br>
+            있도록 이용연령이<br>
+            확대되었습니다.<br>
+            <br>
+            연중운영으로 이용기간이<br>
+            확대되었습니다.</p>
+        </li>
+        <li class="circle">
+          <strong>
+            <span>높은 자유도</span>
+          </strong>
+          <p>유효기간내에 3일을 직접<br>
+            선택하여 패스를 사용하는<br>
+            '선택 3일권' 신설로 더욱<br>
+            자유로워졌습니다.</p>
+        </li>
+        <li class="circle">
+          <strong>
+            <span>좌석지정<br> 가능</span>
+          </strong>
+          <p>KTX와 일반열차의 좌석을<br>
+            무료로 지정할 수 있게되어<br>
+            편의성이 향상되었습니다.<br>
+            (KTX : 1일 1회 , 총 2회)<br>
+            (일반열차 : 1일 2회)</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="con3">
+      <h2 class="con_tit">내일로 이용 안내</h2>
+      <div id="mainTab">
+        <ul role="tablist" class="tablist" aria-label="내일로 이용안내">
+          <li role="tab" class="tab first" id="tab1" aria-controls="tabpanel1">패스가격</li>
+          <li role="tab" class="tab" id="tab2" aria-controls="tabpanel2">이용열차</li>
+          <li role="tab" class="tab last" id="tab3" aria-controls="tabpanel3">판매처</li>
+        </ul>
+        <div role="tabpanel" class="tabpanel" id="tabpanel1" aria-labelledby="tab1">
+          <div class="graybox_l">
+            <div class="pinkbar">
+              <h3>연속 7일권</h3>
+            </div>
+            <div class="in_txt">
+              <p>● ADULT(일반)<br>
+                - 110,000원</p><br>
+              <p>● YOUTH(만 25세 이하)<br>
+                - 60,000원</p>
+            </div>
+          </div>
+          <div class="graybox_r">
+            <div class="bluebar">
+              <h3>연속 3일권</h3>
+            </div>
+            <div class="in_txt">
+              <p>● ADULT(일반)<br>
+                - 100,000원</p><br>
+              <p>● YOUTH(만 25세 이하)<br>
+                - 50,000원</p>
+            </div>
+          </div>
+          <h4 class="bo_txt">* YOUTH는 2021년 2월까지 한시적으로 만 34세까지 확대 운영</h4>
+        </div>
+
+        <div role="tabpanel" class="tabpanel" id="tabpanel2" aria-labelledby="tab2">
+          <div class="tab2_wrap">
+            <strong class="a_tit">KTX의 좌석, 일반열차(ITX-청춘, ITX-새마을, 새마을, 무궁화,<br>
+              누리로, 통근열차)의 좌석・입석(자유석)</strong>
+            <p>* 코로나19 종료시까지 일반열차의 입석・자유석 이용불가<br>
+              → 한시적으로 일반열차의 좌석지정을 1일 4회로 확대운영<br>
+            </p>
+            <p>* 해당 패스의 좌석지정은 별도의 공석 범위내에서 이용되므로<br>
+              일반좌석이 남아 있더라도<br>
+              별도 패스좌석 매진 시 이용이 불가할 수 있습니다.</p>
+            <p>* 입석이용 제한으로 좌석매진 시 해당열차 이용이 불가능하니 미리 구매하시길 바랍니다.</p>
+          </div>
+        </div>
+        <div role="tabpanel" class="tabpanel" id="tabpanel3" aria-labelledby="tab3">
+          <div class="tab3_wrap">
+            <strong class="a_tit">내일로 티켓 판매처</strong>
+
+            <p>역 승차권 단말기, 코레일톡</p>
+          </div>
+        </div>
+    </section>
+
+    <section id="con4">
+      <h4 class="c_sub_tit">코레일톡에서</h4>
+      <h2 class="con_tit">패스 구매 및 좌석지정방법</h2>
+
+      <div id="con4Tab">
+        <ul role="tablist" class="tablist" aria-label="내일로 이용안내">
+          <li role="tab" class="tab first" id="tab14" aria-controls="tabpanel14">STEP1 구매하기</li>
+          <li role="tab" class="tab last" id="tab24" aria-controls="tabpanel24">STEP2 좌석지정하기</li>
+        </ul>
+
+
+        <div role="tabpanel" class="tabpanel" id="tabpanel14" aria-labelledby="tab14">
+          <div class="bg">
+            <div class="app_txt">
+              <strong class="st_txt">#step1 코레일톡에서 '내일로' 구매하기</strong></div>
+            <ul class="applist clearfix">
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui1-1.jpg" alt="1">
+                  <figcaption>① 코레일톡 하단 관광상품탭 클릭</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui1-2.jpg" alt="2">
+                  <figcaption>② 내일로 두번째 이야기 메뉴</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui1-3.jpg" alt="3">
+                  <figcaption>③ 내일로 두번째 이야기 구매 동의</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui1-4.jpg" alt="4">
+                  <figcaption>④ 패스 이용정보 입력 및 결제하기<br>
+                    (출발일, 사용기간 등)</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui1-5.jpg" alt="5">
+                  <figcaption>⑤ 패스 결제/발권</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui1-6.jpg" alt="6">
+                  <figcaption>⑥ 승차권확인 탭에서 승차권확인</figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div role="tabpanel" class="tabpanel" id="tabpanel24" aria-labelledby="tab24">
+          <div class="bg">
+            <div class="app_txt">
+              <strong>#step2 코레일톡에서 '내일로' 좌석지정하기</strong>
+              <p>*내일로는 좌석(또는 입석)지정 후 이용할 수 있으며, 좌석(또는 입석)승차권 없이는 이용이 불가합니다.</p>
+            </div>
+            <ul class="applist">
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui2-1.jpg" alt="1">
+                  <figcaption>① 내일로 2.0 좌석지정</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui2-2.jpg" alt="2">
+                  <figcaption>② 좌석지정 이용 구간, 날짜, 인원 선택</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui2-3.jpg" alt="3">
+                  <figcaption>③ 좌석지정 승차권 예매</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui2-4.jpg" alt="4">
+                  <figcaption>④ 좌석지정 승차권 정보 확인</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui2-5.jpg" alt="5">
+                  <figcaption>⑤ 좌석지정 승차권 결제/발권</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <img src="../images/railpass/ui/ui2-6.jpg" alt="6">
+                  <figcaption>⑥ 좌석지정 승차권 확인하기</figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="con5">
+      <h4 class="c_sub_tit">주의사항</h4>
+      <div class="con5_txt">
+        <p>・ 열차 탑승 시 "내일로 패스 티켓, 좌석(입석) 이용권, 신분증" 전부 지참하셔야 하며, 미지참시 30배의 부과운임이 징수 됩니다.</p>
+        <p>・ 종이승차권(MS중기권)은 분실시 재발매 되지 않습니다.</p>
+        <p>・ 열차 지연보상 및 마일리지 적립대상에서 제외되며, 서면상 기재하지 않은 사항은 철도공사가 정한 여객운송약관 및 관련규정을 적용합니다.</p>
+        <p>・ 내일로 패스의 반환·변경은 이용개시일 1일전까지만 가능하며 사용당일(00시 기준)부터는 절대 불가합니다.</p>
+        <p>・ 캡처한 내일로 패스는 사용할 수 없습니다.</p>
+      </div>
+    </section>
+    <section id="con6" class="clearfix">
+      <h4 class="c_sub_tit">문의처</h4>
+      <div class="con6_txt">
+        <strong> ☎ 철도 고객 센터 : 1544-7788 </strong>
+        <p>(월요일-금요일 09:00~18:00)<br>
+          *토/일요일,공휴일은 운영하지 않습니다.</p>
+      </div>
+      <figure><img src="../images/railpass/call.jpg" alt=""></figure>
+    </section>
+  </div>
+
+  <!-- footer 시작 -->
+
+  <footer id="footer">
+    <div class="area in_foot">
+      <ul>
+        <li><a href="#">홈페이지이용약관</a></li>
+        <li><a href="#">여객운송약관/부속약관</a></li>
+        <li class="privacy"><a href="#">개인정보처리방침</a></li>
+        <li><a href="#">저작권정책</a></li>
+        <li><a href="#">정보공개</a></li>
+      </ul>
+      <div class="longtxt">
+        <p>대표자 : 손병석 | 상호 : 한국철도공사 | 사업자등록 : 314-52-10024 | 통신판매업신고 : 대전동구-0233호 | 주소 : (34618) 대전광역시
+            동구 중앙로 240 | TEL : 1544-7788 | FAX : 02-361-8385</p>
+      </div>
+      <p class="copy">COPYRIGHT @ KOREA RAILROAD. ALL RIGHTS RESERVED.</p>
+    </div>
+  </footer>
+
+  <!-- //footer 끝 -->
+</body>
+
+</html>
